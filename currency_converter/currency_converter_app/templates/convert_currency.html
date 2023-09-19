@@ -3,7 +3,8 @@
 <head>
     <title>Конвертер валют</title>
 </head>
-<body>
+<body style="background-color: #b2f4ff; margin-top: 200px;">
+    <center>
     <h1>Конвертер валют</h1>
     <form method="post">
         {% csrf_token %}
@@ -12,13 +13,14 @@
     </form>
 
     {% if converted_currencies %}
-    <ul>
-        <li>Российские рубли (RUB): {{ converted_currencies.RUB }}</li>
-        <li>Белорусские рубли (BYN): {{ converted_currencies.BYN }}</li>
-        <li>Украинские гривны (UAH): {{ converted_currencies.UAH }}</li>
-        <li>Польские злотые (PLN): {{ converted_currencies.PLN }}</li>
-        <li>Йены (JPY): {{ converted_currencies.JPY }}</li>
-    </ul>
+    <div class="container">
+        <h3>Российские рубли (RUB): {{ converted_currencies.RUB|floatformat:4 }}</h3>
+        <h3>Белорусские рубли (BYN): {{ converted_currencies.BYN|floatformat:4 }}</h3>
+        <h3>Украинские гривны (UAH): {{ converted_currencies.UAH|floatformat:4 }}</h3>
+        <h3>Польские злотые (PLN): {{ converted_currencies.PLN|floatformat:4 }}</h3>
+        <h3>Йены (JPY): {{ converted_currencies.JPY|floatformat:4 }}</h3>
+    </div>
     {% endif %}
+    </center>
 </body>
 </html>
