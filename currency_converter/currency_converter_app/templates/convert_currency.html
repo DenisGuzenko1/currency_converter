@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Конвертер валют</title>
+</head>
+<body>
+    <h1>Конвертер валют</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Конвертировать">
+    </form>
+
+    {% if converted_currencies %}
+    <ul>
+        <li>Российские рубли (RUB): {{ converted_currencies.RUB }}</li>
+        <li>Белорусские рубли (BYN): {{ converted_currencies.BYN }}</li>
+        <li>Украинские гривны (UAH): {{ converted_currencies.UAH }}</li>
+        <li>Польские злотые (PLN): {{ converted_currencies.PLN }}</li>
+        <li>Йены (JPY): {{ converted_currencies.JPY }}</li>
+    </ul>
+    {% endif %}
+</body>
+</html>
